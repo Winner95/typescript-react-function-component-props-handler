@@ -1,0 +1,28 @@
+{
+  "name": "typescript-react-function-component-props-handler",
+  "version": "1.0.0",
+  "description": "a custom react function components props handler for react-docgen. It allows you to parse props, which are typed as React.functionComponent<props> without rewriting your code",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Winner95/typescript-react-function-component-props-handler.git"
+  },
+  "keywords": [
+    "react-docgen",
+    "react",
+    "function",
+    "components",
+    "props",
+    "handler",
+    "documentation-generation"
+  ],
+  "author": "Ivan Grekov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Winner95/typescript-react-function-component-props-handler/issues"
+  },
+  "homepage": "https://github.com/Winner95/typescript-react-function-component-props-handler#readme"
+}
