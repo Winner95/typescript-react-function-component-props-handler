@@ -2,7 +2,7 @@
 
 Custom react function component props handler for react-docgen. It allows you to parse props, which are typed as React.functionComponent&lt;props> without rewriting your code.
 
-## intro
+## Intro
 
 React-docgen 5.3.0 allow you to parse React.components and generate documentation. But if you don't explicitly set type of pros parameter, information about props is not visible in output. This custom handler allows you to fix [this problem](https://github.com/reactjs/react-docgen/issues/387). This is one-purpose, zero-dependency project.
 
