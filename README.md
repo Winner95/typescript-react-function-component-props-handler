@@ -38,3 +38,11 @@ const doc = reactDocs.parse(
 ## What code-examples are covered
 
 Most of general and corner-cases for `React.functionComponents` were covered.
+
+## Useful links
+
+You can test your components in these online services:
+
+* [React-docgen: playground](https://reactcommunity.org/react-docgen/)
+* [TypeScript AST Viewer](https://ts-ast-viewer.com/)
+* [AST Explorer](https://astexplorer.net/)
