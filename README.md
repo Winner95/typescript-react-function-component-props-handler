@@ -1,6 +1,6 @@
-# typescript-react-function-component-props-handler
+# Typescript-react-function-component-props-handler [![npm version](https://badge.fury.io/js/typescript-react-function-component-props-handler.svg)](https://badge.fury.io/js/typescript-react-function-component-props-handler)
 
-Custom react function component props handler for react-docgen. It allows you to parse props, which are typed as React.functionComponent&lt;props> without rewriting your code.
+Custom handler to proccess react function component props for `react-docgen` package. It allows you to parse props, which are typed as React.functionComponent&lt;props> without rewriting your code.
 
 ## Intro
 
