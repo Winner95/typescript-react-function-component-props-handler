@@ -53,7 +53,12 @@ function setParamsTypeDefinitionFromFunctionType(documentation, path) {
 
     if (
         path.node.type === 'ArrowFunctionExpression' &&
-        !path.parentPath.node.init.params[0].typeAnnotation
+        (
+            path.parentPath.node.init &&
+            path.parentPath.node.init.params &&
+            path.parentPath.node.init.params[0] &&
+            !path.parentPath.node.init.params[0].typeAnnotation
+        )
     ) {
         const paramTypeName = setParamTypeName(path);
 
