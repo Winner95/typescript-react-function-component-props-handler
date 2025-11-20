@@ -154,6 +154,23 @@ describe('typescript-react-function-component-props-handler', () => {
         expect(doc.props).not.toHaveProperty('placeholder');
     });
 
+    // @TODO add support for index signature in type
+    test('handles React.FC<Props> components with dynamic type props', () => {
+        const doc = parseFixture('TextInput.tsx');
+
+        expect(doc).toHaveProperty('props');
+        expect(doc.props).toHaveProperty('onChange');
+        expect(doc.props.onChange).toHaveProperty('tsType');
+        expect(doc.props.onChange.tsType.raw).toBe('(event: React.ChangeEvent<HTMLInputElement>) => void');
+        expect(doc.props.onChange.tsType.signature).toHaveProperty('arguments');
+        expect(doc.props.onChange.tsType.signature.arguments).toHaveLength(1);
+        expect(doc.props.onChange.tsType.signature.arguments[0]).toMatchObject({ name: 'event' } );
+        expect(doc.props.onChange.tsType.signature.arguments[0].type).toHaveProperty('elements')
+        // data-testid comes from DataAttributes index signature
+        // which is not yet supported
+        expect(doc.props).not.toHaveProperty('data-testid');
+    });
+
     // Line 31 in index.js without type - can't be tested directly because of early return
     test('handles components without type', () => {
         const doc = parseFixture('ComponentWithoutType.tsx');
