@@ -46,6 +46,12 @@ describe('typescript-react-function-component-props-handler', () => {
         );
     });
 
+    test('handles React.FC<Props> components - AccessibleButton', () => {
+        const doc = parseFixture('AccessibleButton.tsx');
+
+        expect(doc.props).toBeUndefined();
+    });
+
     // Line 31 in index.js without type - can't be tested directly because of early return
     test('handles components without type', () => {
         const doc = parseFixture('ComponentWithoutType.tsx');
