@@ -4,7 +4,9 @@
   "description": "a custom react function components props handler for react-docgen. It allows you to parse props, which are typed as React.functionComponent<props> without rewriting your code",
   "main": "index.js",
   "scripts": {
-    "test": "yarn test"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,9 @@
   "bugs": {
     "url": "https://github.com/Winner95/typescript-react-function-component-props-handler/issues"
   },
-  "homepage": "https://github.com/Winner95/typescript-react-function-component-props-handler#readme"
+  "homepage": "https://github.com/Winner95/typescript-react-function-component-props-handler#readme",
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "react-docgen": "5.3.0"
+  }
 }
