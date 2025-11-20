@@ -86,6 +86,14 @@ describe('typescript-react-function-component-props-handler', () => {
         expect(doc.props.value.tsType.name).toBe("any");
     });
 
+    test('handles React.FC<Props> components with type prop type of NoInfer', () => {
+        const doc = parseFixture('PrimaryButton.tsx');
+
+        expect(doc).toHaveProperty('props');
+        expect(doc.props).toHaveProperty('as');
+        expect(doc.props.as.tsType.name).toBe("T");
+    });
+
     // Line 31 in index.js without type - can't be tested directly because of early return
     test('handles components without type', () => {
         const doc = parseFixture('ComponentWithoutType.tsx');
