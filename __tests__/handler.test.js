@@ -59,6 +59,15 @@ describe('typescript-react-function-component-props-handler', () => {
         );
     });
 
+    test('handles React.FC<Props> components with union type props', () => {
+        const doc = parseFixture('Icon.tsx');
+
+        expect(doc.props).toHaveProperty('size');
+        expect(doc.props.size.tsType).toMatchObject({ name: 'union' });
+        expect(doc.props.size.tsType).toHaveProperty('raw');
+        expect(doc.props.size.tsType.raw).toBe("'small' | 'medium' | 'big'");
+    });
+
     // Line 31 in index.js without type - can't be tested directly because of early return
     test('handles components without type', () => {
         const doc = parseFixture('ComponentWithoutType.tsx');
