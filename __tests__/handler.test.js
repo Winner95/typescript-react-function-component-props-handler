@@ -131,6 +131,16 @@ describe('typescript-react-function-component-props-handler', () => {
         expect(doc.props.children.tsType.raw).toBe('React.ReactNode');
     });
 
+    test('handles React.FC<Props> components with type props', () => {
+        const doc = parseFixture('Tag.tsx');
+
+        expect(doc).toHaveProperty('displayName');
+        expect(doc.displayName).toBe('Tag');
+        expect(doc).toHaveProperty('props');
+        expect(doc.props).toHaveProperty('onRemove');
+        expect(doc.props.onRemove.tsType.raw).toBe('() => void');
+    });
+
     // Line 31 in index.js without type - can't be tested directly because of early return
     test('handles components without type', () => {
         const doc = parseFixture('ComponentWithoutType.tsx');
