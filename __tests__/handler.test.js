@@ -78,6 +78,14 @@ describe('typescript-react-function-component-props-handler', () => {
         expect(doc.props.displaySettings.tsType.signature.properties).toHaveLength(3);
     });
 
+    test('handles React.FC<Props> components with type prop type of any', () => {
+        const doc = parseFixture('LocalizedTextInput.tsx');
+
+        expect(doc).toHaveProperty('props');
+        expect(doc.props).toHaveProperty('value');
+        expect(doc.props.value.tsType.name).toBe("any");
+    });
+
     // Line 31 in index.js without type - can't be tested directly because of early return
     test('handles components without type', () => {
         const doc = parseFixture('ComponentWithoutType.tsx');
