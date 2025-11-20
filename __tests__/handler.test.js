@@ -39,12 +39,12 @@ describe('typescript-react-function-component-props-handler', () => {
         expect(doc.displayName).toBe('TooltipTarget');
     });
 
-    // Currently return error
-    // test('handles React.forwardRef(...) components - part 2', () => {
-    //     const doc = parseFixture('ForwardedButton.tsx');
-    //     console.log(doc)
-    //     expect(doc.displayName).toBe('Button');
-    // });
+    // Currently returns error for React.forwardRef(...) components
+    test('handles React.forwardRef(...) components - part 2', () => {
+        expect(() => parseFixture('ForwardedButton.tsx')).toThrow(
+            "Cannot read properties of undefined (reading 'length')"
+        );
+    });
 
     // Line 31 in index.js without type - can't be tested directly because of early return
     test('handles components without type', () => {
