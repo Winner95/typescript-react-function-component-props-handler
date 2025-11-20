@@ -5,8 +5,8 @@ interface InterfaceProps {
   disabled?: boolean;
 }
 
-const ComponentWithInterface: React.FC<InterfaceProps> = (props) => {
+const InterfacePropsComponent: React.FC<InterfaceProps> = (props) => {
   return <button disabled={props.disabled}>{props.label}</button>;
 };
 
-export default ComponentWithInterface;
+export default InterfacePropsComponent;

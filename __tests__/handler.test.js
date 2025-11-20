@@ -95,7 +95,7 @@ describe('typescript-react-function-component-props-handler', () => {
     // Line 86 in index.js uses TSInterfaceDeclaration
     test('handles components with interface props', () => {
         const doc = parseFixture('InterfacePropsComponent.tsx');
-        expect(doc.displayName).toBe('ComponentWithInterface');
+        expect(doc.displayName).toBe('InterfacePropsComponent');
 
         expect(doc).toHaveProperty('props');
         expect(doc.props).toHaveProperty('label');
