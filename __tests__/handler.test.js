@@ -80,7 +80,7 @@ describe('typescript-react-function-component-props-handler', () => {
     // Line 78 in index.js uses ExportNamedDeclaration
     test('handles components with exported interface', () => {
         const doc = parseFixture('ExportedInterfacePropsComponent.tsx');
-        expect(doc.displayName).toBe('ComponentWithExportedType');
+        expect(doc.displayName).toBe('ExportedInterfacePropsComponent');
     });
 
     // Line 86 in index.js uses TSInterfaceDeclaration

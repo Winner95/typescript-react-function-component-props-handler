@@ -5,8 +5,8 @@ export interface ExportedProps {
   disabled?: boolean;
 }
 
-const ComponentWithExportedType: React.FC<ExportedProps> = (props) => {
+const ExportedInterfacePropsComponent: React.FC<ExportedProps> = (props) => {
   return <button disabled={props.disabled}>{props.label}</button>;
 };
 
-export default ComponentWithExportedType;
+export default ExportedInterfacePropsComponent;
