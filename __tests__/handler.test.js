@@ -68,6 +68,16 @@ describe('typescript-react-function-component-props-handler', () => {
         expect(doc.props.size.tsType.raw).toBe("'small' | 'medium' | 'big'");
     });
 
+    test('handles React.FC<Props> components with complex type props', () => {
+        const doc = parseFixture('LayoutSettings.tsx');
+
+        expect(doc).toHaveProperty('props');
+        expect(doc.props).toHaveProperty('displaySettings');
+        expect(doc.props).toHaveProperty('columnManager');
+        expect(doc.props).toHaveProperty('onSettingsChange');
+        expect(doc.props.displaySettings.tsType.signature.properties).toHaveLength(3);
+    });
+
     // Line 31 in index.js without type - can't be tested directly because of early return
     test('handles components without type', () => {
         const doc = parseFixture('ComponentWithoutType.tsx');
