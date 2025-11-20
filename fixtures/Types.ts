@@ -13,3 +13,15 @@ export type PolymorphicProps<
     : {}) & {
       as?: T;
     };
+
+export type TextInputProps = {
+  value?: string;
+  defaultValue?: string;
+  placeholder?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
+  required?: boolean;
+  maxLength?: number;
+  minLength?: number;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
