@@ -52,6 +52,13 @@ describe('typescript-react-function-component-props-handler', () => {
         expect(doc.props).toBeUndefined();
     });
 
+    // Currently returns error for DataTableManager
+    test('handles React.FC<Props> components - DataTableManager', () => {
+        expect(() => parseFixture('DataTableManager.tsx')).toThrow(
+            'did not recognize object of type "ChainExpression"'
+        );
+    });
+
     // Line 31 in index.js without type - can't be tested directly because of early return
     test('handles components without type', () => {
         const doc = parseFixture('ComponentWithoutType.tsx');
