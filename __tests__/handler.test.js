@@ -141,6 +141,19 @@ describe('typescript-react-function-component-props-handler', () => {
         expect(doc.props.onRemove.tsType.raw).toBe('() => void');
     });
 
+    // @TODO add support for imported type, partially covered by react.docgen config setup (?)
+    test('handles React.FC<Props> components with inherited type props', () => {
+        const doc = parseFixture('TextField.tsx');
+
+        expect(doc).toHaveProperty('props');
+        expect(doc.props).toHaveProperty('onInfoButtonClick');
+        expect(doc.props.onInfoButtonClick).toHaveProperty('tsType');
+        expect(doc.props.onInfoButtonClick.tsType.raw).toBe('() => void');
+
+        // 'placeholder' prop comes from TextInputProps imported type, which is not yet supported
+        expect(doc.props).not.toHaveProperty('placeholder');
+    });
+
     // Line 31 in index.js without type - can't be tested directly because of early return
     test('handles components without type', () => {
         const doc = parseFixture('ComponentWithoutType.tsx');
