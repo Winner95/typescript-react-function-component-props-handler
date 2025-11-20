@@ -114,6 +114,14 @@ describe('typescript-react-function-component-props-handler', () => {
         expect(doc.props).toBeUndefined();
     });
 
+    // @TODO add description about error for "Multiple exported component definitions found."
+    // when several exported components are present in a single file - use different setup for parsing
+    test('handles several export React.FC<Props> components with error', () => {
+        expect(() => parseFixture('SeveralExportsComponent.tsx')).toThrow(
+            "Multiple exported component definitions found."
+        );
+    });
+
     // Line 31 in index.js without type - can't be tested directly because of early return
     test('handles components without type', () => {
         const doc = parseFixture('ComponentWithoutType.tsx');
