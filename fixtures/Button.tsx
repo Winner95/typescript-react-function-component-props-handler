@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 /** Props for the Button component */
 type ButtonProps = {

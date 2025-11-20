@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { JSX } from 'react';
+
+type TStringOrComponent = string | React.JSXElementConstructor<any>;
+
+type PolymorphicProps<
+  T extends TStringOrComponent,
+  Props = {}
+> = Props &
+  (T extends React.JSXElementConstructor<infer P>
+    ? P
+    : T extends keyof JSX.IntrinsicElements
+    ? JSX.IntrinsicElements[T]
+    : {}) & {
+      as?: T;
+    };
 
 type TooltipTargetOwnProps = {
   isDisabled?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 type TooltipTargetProps<T extends TStringOrComponent> = PolymorphicProps<

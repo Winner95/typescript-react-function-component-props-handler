@@ -6,6 +6,7 @@ type ButtonProps = {
     label: string;
     /** Optional click handler */
     onClick?: () => void;
+    children?: React.ReactNode;
 };
 
 // TypeError: Cannot read properties of undefined (reading 'length')
@@ -20,5 +21,5 @@ const Button: React.FC<ButtonProps> = ({ label, onClick }) => {
     // You can now get a ref directly to the DOM button:
     const ref = React.createRef();
 
-    return <ForwardedButton ref={ref}>{label}</ForwardedButton>;;
+    return <ForwardedButton ref={ref} label={label}>{label}</ForwardedButton>;;
 };
