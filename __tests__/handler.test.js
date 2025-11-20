@@ -100,6 +100,13 @@ describe('typescript-react-function-component-props-handler', () => {
         expect(doc.props).toBeUndefined();
     });
 
+    // @TODO add definition to scan props for that case
+    test('handles NoInfer components with type props definition', () => {
+        const doc = parseFixture('PrimaryButtonPropsFromPackage.tsx');
+
+        expect(doc.props).toBeUndefined();
+    });
+
     // Line 31 in index.js without type - can't be tested directly because of early return
     test('handles components without type', () => {
         const doc = parseFixture('ComponentWithoutType.tsx');
