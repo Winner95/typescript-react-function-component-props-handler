@@ -107,6 +107,13 @@ describe('typescript-react-function-component-props-handler', () => {
         expect(doc.props).toBeUndefined();
     });
 
+    // @TODO add definition for a generic type parameter with a default
+    test('handles React.FC<Props> components with a generic type parameter with a default', () => {
+        const doc = parseFixture('Select.tsx');
+
+        expect(doc.props).toBeUndefined();
+    });
+
     // Line 31 in index.js without type - can't be tested directly because of early return
     test('handles components without type', () => {
         const doc = parseFixture('ComponentWithoutType.tsx');
