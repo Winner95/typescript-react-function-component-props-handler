@@ -39,11 +39,26 @@ describe('typescript-react-function-component-props-handler', () => {
         expect(doc.displayName).toBe('TooltipTarget');
     });
 
-    // Currently returns error for React.forwardRef(...) components
     test('handles React.forwardRef(...) components - part 2', () => {
-        expect(() => parseFixture('ForwardedButton.tsx')).toThrow(
-            "Cannot read properties of undefined (reading 'length')"
-        );
+        const doc = parseFixture('ForwardedButton.tsx');
+
+        expect(doc.displayName).toBe('ForwardedButton');
+        expect(doc).toHaveProperty('props');
+        expect(doc.props).toHaveProperty('label');
+        expect(doc.props.label.tsType).toMatchObject({ name: 'string' });
+        expect(doc.props.label.required).toBe(true);
+        expect(doc.props.label).toHaveProperty('description');
+        expect(doc.props.label.description).toBe('Text to show inside the button');
+
+        expect(doc.props).toHaveProperty('onClick');
+        expect(doc.props.onClick.tsType).toMatchObject({ name: 'signature' });
+        expect(doc.props.onClick.tsType.type).toBe('function');
+        expect(doc.props.onClick.tsType.raw).toBe('() => void');
+        expect(doc.props.onClick.tsType.signature).toMatchObject({ arguments: [], return: { name: 'void' } });
+        expect(doc.props.onClick.required).toBe(false);
+
+        expect(doc.props.onClick).toHaveProperty('description');
+        expect(doc.props.onClick.description).toBe('Optional click handler');
     });
 
     test('handles React.FC<Props> components - AccessibleButton', () => {
