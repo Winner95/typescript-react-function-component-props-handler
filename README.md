@@ -49,6 +49,13 @@ This package is intended as a small helper for react-docgen.
 
 It is not an officially supported product of any company I work or worked for.
 
+## Support & responsibility
+
+This is a best-effort open source project maintained in my spare time.
+I will try to review issues and PRs, but I cannot guarantee response
+times or fixes for every use case. Please evaluate the library and
+decide if it is suitable for your project before using it in production.
+
 ## Useful links
 
 You can test your components in these online services:
