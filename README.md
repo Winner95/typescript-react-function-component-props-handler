@@ -39,6 +39,16 @@ const doc = reactDocs.parse(
 
 Most of general and corner-cases for `React.functionComponents` were covered.
 
+## Disclaimer
+
+This library is provided **as is**, without warranty of any kind.
+Use it at your own risk. The author(s) are not responsible for any
+issues, data loss, or production incidents resulting from its use.
+
+This package is intended as a small helper for react-docgen.
+
+It is not an officially supported product of any company I work or worked for.
+
 ## Useful links
 
 You can test your components in these online services:
